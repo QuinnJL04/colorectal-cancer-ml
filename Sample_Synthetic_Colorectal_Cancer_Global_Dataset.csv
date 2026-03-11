@@ -1,0 +1,101 @@
+Patient_ID,Country,Age,Gender,Cancer_Stage,Tumor_Size_mm,Family_History,Smoking_History,Alcohol_Consumption,Obesity_BMI,Diet_Risk,Physical_Activity,Diabetes,Inflammatory_Bowel_Disease,Genetic_Mutation,Screening_History,Early_Detection,Treatment_Type,Survival_5_years,Mortality,Healthcare_Costs,Incidence_Rate_per_100K,Mortality_Rate_per_100K,Urban_or_Rural,Economic_Classification,Healthcare_Access,Insurance_Status,Survival_Prediction
+1,UK,74,M,Localized,45,No,No,Yes,Obese,Moderate,Moderate,No,No,No,Irregular,Yes,Surgery,No,Yes,35296,31,22,Urban,Developed,High,Insured,No
+2,USA,59,M,Localized,42,Yes,No,No,Overweight,Low,High,No,No,No,Irregular,Yes,Surgery,No,Yes,41402,19,23,Urban,Developing,Moderate,Uninsured,Yes
+3,USA,77,F,Regional,15,No,No,Yes,Obese,Moderate,Moderate,No,No,No,Never,Yes,Surgery,Yes,No,83000,12,23,Urban,Developed,Moderate,Insured,No
+4,Italy,87,M,Regional,65,No,No,Yes,Overweight,Moderate,Low,No,No,Yes,Regular,No,Chemotherapy,No,Yes,96168,18,16,Urban,Developed,Low,Insured,Yes
+5,South Africa,63,F,Localized,73,No,No,No,Obese,Moderate,High,No,No,No,Regular,Yes,Surgery,No,Yes,109686,51,15,Rural,Developed,Moderate,Uninsured,Yes
+6,UK,82,M,Metastatic,40,Yes,No,No,Normal,Moderate,Low,No,No,No,Regular,Yes,Surgery,Yes,No,110171,45,6,Rural,Developed,Moderate,Insured,Yes
+7,Australia,61,M,Regional,21,No,Yes,No,Normal,Moderate,Low,Yes,No,No,Never,Yes,Chemotherapy,No,No,26774,53,8,Urban,Developed,Low,Uninsured,Yes
+8,UK,55,M,Regional,9,Yes,No,Yes,Overweight,High,Moderate,No,No,No,Regular,No,Surgery,No,No,34854,39,12,Rural,Developed,High,Insured,Yes
+9,USA,84,F,Regional,11,Yes,Yes,No,Overweight,Low,Low,No,No,No,Regular,Yes,Chemotherapy,Yes,Yes,55747,39,6,Urban,Developing,Moderate,Insured,No
+10,Australia,80,M,Regional,8,No,Yes,No,Overweight,Moderate,High,No,No,No,Irregular,No,Combination,Yes,Yes,45026,53,16,Rural,Developing,High,Insured,No
+11,Italy,61,F,Regional,15,Yes,No,Yes,Overweight,High,Moderate,No,No,No,Regular,Yes,Combination,Yes,No,86154,13,26,Urban,Developing,High,Uninsured,Yes
+12,China,47,M,Localized,70,No,Yes,No,Obese,High,Moderate,No,No,No,Irregular,No,Chemotherapy,Yes,No,94103,18,20,Urban,Developing,High,Uninsured,Yes
+13,Australia,50,F,Regional,61,No,No,Yes,Obese,Moderate,Moderate,Yes,No,No,Regular,Yes,Surgery,Yes,Yes,36148,47,11,Urban,Developing,Moderate,Insured,Yes
+14,Brazil,79,M,Localized,37,Yes,No,No,Normal,High,Low,No,No,No,Never,Yes,Surgery,Yes,Yes,104141,57,18,Rural,Developing,Moderate,Insured,Yes
+15,China,78,F,Localized,46,Yes,No,No,Normal,High,Moderate,Yes,No,No,Regular,Yes,Chemotherapy,Yes,No,86596,26,8,Urban,Developed,Moderate,Insured,No
+16,New Zealand,70,M,Localized,19,No,No,No,Normal,High,Low,No,No,No,Regular,No,Surgery,Yes,Yes,37758,31,18,Rural,Developing,Low,Insured,Yes
+17,UK,72,F,Regional,32,Yes,No,No,Obese,High,Low,Yes,No,No,Irregular,Yes,Surgery,No,Yes,101857,26,16,Urban,Developing,High,Insured,No
+18,Japan,51,F,Localized,15,No,Yes,Yes,Obese,Moderate,Low,No,No,No,Regular,No,Surgery,No,No,85338,46,17,Urban,Developed,Moderate,Uninsured,Yes
+19,China,62,M,Localized,51,Yes,Yes,No,Overweight,Moderate,Low,No,No,No,Never,No,Surgery,No,No,33355,25,24,Urban,Developing,High,Uninsured,Yes
+20,USA,58,M,Metastatic,20,Yes,No,Yes,Obese,Moderate,Moderate,No,No,No,Never,No,Surgery,Yes,No,68126,13,28,Urban,Developed,High,Insured,Yes
+21,Italy,62,M,Localized,17,No,No,Yes,Overweight,Low,Moderate,Yes,Yes,No,Regular,No,Chemotherapy,No,Yes,25256,35,18,Rural,Developing,Moderate,Insured,No
+22,Pakistan,81,M,Localized,47,Yes,Yes,Yes,Obese,Moderate,Moderate,No,No,No,Regular,Yes,Chemotherapy,Yes,No,76879,47,9,Urban,Developing,Moderate,Insured,No
+23,France,81,F,Localized,64,No,No,No,Overweight,Moderate,High,No,No,No,Regular,Yes,Combination,No,Yes,46015,23,15,Urban,Developed,High,Insured,Yes
+24,South Korea,68,M,Regional,63,Yes,No,Yes,Obese,Moderate,Moderate,No,No,No,Regular,Yes,Combination,No,Yes,83004,55,25,Urban,Developed,High,Insured,No
+25,New Zealand,70,M,Regional,56,No,No,Yes,Normal,High,Low,No,Yes,No,Irregular,No,Chemotherapy,Yes,Yes,67201,54,21,Rural,Developed,Low,Insured,Yes
+26,South Korea,73,F,Regional,24,Yes,Yes,Yes,Overweight,Low,High,No,No,No,Irregular,Yes,Combination,Yes,Yes,31828,48,20,Urban,Developing,Moderate,Uninsured,Yes
+27,France,86,M,Regional,70,No,No,Yes,Overweight,High,High,No,No,No,Regular,Yes,Surgery,No,Yes,55455,47,26,Urban,Developing,Low,Insured,Yes
+28,South Korea,89,M,Metastatic,77,No,No,No,Overweight,Moderate,Moderate,No,No,No,Regular,Yes,Surgery,Yes,No,67724,11,8,Urban,Developed,High,Insured,No
+29,Australia,74,M,Regional,36,Yes,No,Yes,Normal,Moderate,Moderate,Yes,No,No,Regular,No,Combination,Yes,No,104240,47,10,Urban,Developing,Moderate,Uninsured,Yes
+30,India,69,F,Localized,24,No,No,No,Normal,High,Moderate,No,No,Yes,Regular,Yes,Surgery,Yes,No,55569,14,18,Urban,Developing,Low,Uninsured,Yes
+31,Brazil,71,M,Regional,65,Yes,Yes,Yes,Overweight,Moderate,Low,No,No,No,Irregular,No,Surgery,Yes,Yes,110158,35,12,Urban,Developed,High,Insured,No
+32,Italy,88,M,Localized,17,No,Yes,Yes,Obese,Moderate,Low,No,No,No,Irregular,No,Combination,No,No,65680,40,23,Urban,Developed,High,Uninsured,Yes
+33,Italy,71,M,Localized,47,No,No,No,Obese,Low,High,No,No,Yes,Regular,Yes,Surgery,No,No,53309,43,24,Urban,Developing,Low,Uninsured,Yes
+34,UK,71,M,Regional,67,No,No,Yes,Normal,Low,Low,No,No,No,Never,No,Chemotherapy,No,Yes,85704,17,25,Rural,Developed,High,Insured,Yes
+35,UK,73,M,Localized,44,No,No,No,Overweight,High,Low,No,Yes,No,Irregular,Yes,Radiotherapy,Yes,Yes,28651,43,11,Rural,Developing,Moderate,Insured,Yes
+36,UK,76,M,Regional,55,No,No,No,Obese,High,High,No,No,No,Irregular,No,Surgery,Yes,Yes,119469,37,21,Urban,Developing,High,Insured,Yes
+37,France,51,M,Metastatic,36,Yes,No,No,Overweight,High,High,No,No,Yes,Regular,Yes,Combination,No,No,72415,17,25,Urban,Developing,Low,Insured,Yes
+38,UK,56,F,Metastatic,66,No,Yes,Yes,Normal,Moderate,Moderate,No,No,No,Regular,No,Surgery,Yes,No,108632,17,13,Rural,Developed,High,Insured,No
+39,South Korea,70,M,Regional,52,No,No,Yes,Normal,Moderate,High,No,No,No,Irregular,No,Surgery,No,Yes,114623,20,12,Urban,Developed,Moderate,Insured,Yes
+40,France,70,M,Regional,18,No,Yes,Yes,Overweight,High,Low,No,No,No,Never,No,Radiotherapy,Yes,Yes,27064,28,18,Rural,Developing,Moderate,Insured,Yes
+41,India,64,M,Regional,53,No,No,No,Overweight,High,Moderate,No,No,No,Irregular,No,Surgery,Yes,No,116845,11,26,Urban,Developing,Moderate,Uninsured,No
+42,USA,71,M,Localized,45,No,No,No,Normal,Low,Moderate,No,No,No,Never,Yes,Chemotherapy,No,Yes,25151,53,19,Urban,Developed,Moderate,Insured,Yes
+43,China,63,F,Localized,7,No,Yes,Yes,Overweight,High,Low,No,No,No,Never,No,Surgery,Yes,No,30399,57,21,Rural,Developing,Low,Insured,Yes
+44,France,62,F,Metastatic,56,Yes,No,Yes,Overweight,Low,Moderate,No,No,No,Regular,Yes,Radiotherapy,Yes,No,91935,18,24,Urban,Developed,Moderate,Uninsured,Yes
+45,Pakistan,71,F,Localized,42,No,Yes,No,Overweight,Low,High,No,No,No,Irregular,Yes,Combination,Yes,No,46939,32,19,Rural,Developed,High,Insured,No
+46,Italy,60,M,Localized,32,No,Yes,No,Obese,High,Low,No,No,No,Never,Yes,Surgery,No,No,92680,23,18,Urban,Developed,Moderate,Uninsured,No
+47,Germany,53,F,Regional,64,No,No,No,Obese,Moderate,High,No,No,No,Irregular,No,Combination,Yes,No,118165,42,19,Urban,Developed,Low,Insured,Yes
+48,Australia,70,F,Regional,30,Yes,Yes,No,Obese,High,Moderate,No,Yes,No,Regular,No,Combination,Yes,Yes,30120,34,24,Urban,Developed,Moderate,Uninsured,Yes
+49,South Korea,64,M,Localized,16,No,Yes,No,Normal,High,Low,No,No,No,Irregular,Yes,Combination,Yes,Yes,96695,49,9,Urban,Developed,High,Insured,Yes
+50,China,80,F,Regional,28,Yes,Yes,No,Obese,Moderate,Moderate,Yes,Yes,Yes,Regular,Yes,Chemotherapy,Yes,Yes,112168,56,23,Urban,Developing,Moderate,Insured,No
+51,Japan,67,M,Regional,10,Yes,No,No,Normal,High,High,No,No,No,Regular,Yes,Combination,No,No,85306,47,27,Urban,Developing,Moderate,Insured,No
+52,India,89,M,Localized,62,No,Yes,Yes,Obese,Moderate,High,No,No,No,Regular,Yes,Surgery,No,No,101889,57,10,Urban,Developing,Low,Insured,No
+53,India,79,M,Localized,6,No,Yes,No,Obese,High,Low,Yes,No,No,Regular,Yes,Surgery,No,No,46835,44,25,Urban,Developing,Moderate,Uninsured,No
+54,New Zealand,57,F,Regional,43,No,Yes,Yes,Obese,Moderate,Moderate,No,No,No,Never,No,Surgery,No,No,34928,43,7,Urban,Developed,Moderate,Uninsured,Yes
+55,Italy,82,M,Regional,32,No,Yes,Yes,Overweight,Moderate,Low,No,No,No,Irregular,Yes,Surgery,No,No,72077,29,13,Urban,Developed,Moderate,Insured,Yes
+56,China,62,M,Localized,51,No,Yes,No,Normal,Moderate,High,No,Yes,No,Regular,Yes,Radiotherapy,Yes,Yes,45502,34,13,Urban,Developing,Moderate,Insured,Yes
+57,Germany,76,M,Regional,74,No,Yes,Yes,Normal,Moderate,Low,No,No,No,Regular,No,Surgery,Yes,Yes,60300,10,13,Urban,Developed,Moderate,Insured,Yes
+58,USA,81,M,Metastatic,10,No,Yes,No,Overweight,Low,Moderate,No,No,No,Never,Yes,Radiotherapy,Yes,Yes,62206,23,14,Urban,Developing,Moderate,Insured,No
+59,USA,52,M,Localized,75,Yes,Yes,No,Overweight,High,Low,No,No,No,Never,No,Radiotherapy,No,Yes,80701,14,6,Urban,Developing,Moderate,Uninsured,No
+60,USA,65,F,Localized,45,Yes,No,No,Obese,Low,Moderate,Yes,No,No,Irregular,No,Radiotherapy,No,No,40592,50,25,Urban,Developed,Moderate,Uninsured,No
+61,Nigeria,61,M,Regional,11,No,No,Yes,Overweight,Moderate,Moderate,No,No,No,Irregular,No,Chemotherapy,Yes,Yes,53027,43,7,Urban,Developed,Low,Insured,No
+62,Brazil,57,F,Regional,63,No,No,No,Overweight,Low,High,No,No,Yes,Never,No,Surgery,Yes,No,26383,28,26,Urban,Developing,High,Insured,No
+63,New Zealand,75,F,Regional,58,No,No,Yes,Overweight,Low,Moderate,Yes,No,Yes,Regular,Yes,Chemotherapy,Yes,No,61243,56,10,Rural,Developing,Moderate,Insured,Yes
+64,USA,62,F,Regional,43,No,No,Yes,Overweight,High,Low,No,No,No,Regular,No,Surgery,Yes,No,67991,58,8,Urban,Developing,High,Insured,Yes
+65,Germany,70,M,Metastatic,32,Yes,No,No,Obese,Low,Moderate,No,Yes,No,Regular,No,Combination,No,Yes,37449,29,22,Rural,Developed,Low,Insured,No
+66,Canada,71,M,Regional,52,Yes,Yes,No,Normal,High,Moderate,No,No,Yes,Irregular,No,Chemotherapy,Yes,No,50265,46,20,Rural,Developed,Moderate,Insured,Yes
+67,USA,52,F,Regional,64,No,No,No,Obese,High,Low,No,No,No,Irregular,Yes,Surgery,Yes,No,79783,11,14,Urban,Developing,Moderate,Insured,No
+68,Japan,76,F,Metastatic,31,No,No,Yes,Overweight,Moderate,Low,No,No,Yes,Regular,No,Combination,Yes,No,101827,50,14,Urban,Developed,High,Uninsured,Yes
+69,Japan,68,F,Metastatic,11,No,Yes,Yes,Normal,High,Moderate,No,No,No,Regular,Yes,Surgery,Yes,No,43264,20,19,Rural,Developing,Low,Uninsured,No
+70,China,72,F,Regional,57,No,Yes,No,Obese,High,Moderate,Yes,No,No,Irregular,No,Combination,Yes,No,30372,16,21,Urban,Developed,High,Uninsured,Yes
+71,USA,83,M,Metastatic,43,Yes,No,No,Normal,High,Low,No,No,No,Never,Yes,Surgery,Yes,No,36120,35,28,Urban,Developed,Moderate,Insured,Yes
+72,France,81,M,Localized,39,Yes,Yes,Yes,Normal,Moderate,Low,No,No,No,Regular,Yes,Surgery,No,No,29029,34,27,Urban,Developed,High,Insured,Yes
+73,Australia,75,F,Regional,58,No,No,Yes,Normal,Low,Low,No,No,No,Never,No,Surgery,Yes,No,64494,30,28,Urban,Developing,Moderate,Insured,No
+74,Italy,78,M,Localized,5,No,No,Yes,Normal,Low,Low,No,No,No,Irregular,Yes,Surgery,Yes,Yes,69062,17,17,Urban,Developed,Moderate,Uninsured,Yes
+75,China,72,F,Localized,77,No,No,Yes,Normal,High,Low,No,No,No,Regular,No,Chemotherapy,Yes,Yes,25033,21,16,Urban,Developing,Moderate,Insured,Yes
+76,Australia,84,F,Localized,77,No,No,Yes,Obese,Low,Low,No,No,No,Never,Yes,Surgery,Yes,No,112794,23,21,Urban,Developed,Moderate,Uninsured,Yes
+77,Italy,64,M,Regional,16,No,No,Yes,Obese,High,Moderate,No,No,No,Regular,Yes,Chemotherapy,Yes,Yes,111137,12,18,Urban,Developed,Moderate,Insured,No
+78,South Korea,45,M,Localized,30,No,Yes,Yes,Normal,High,High,No,No,No,Regular,Yes,Combination,Yes,Yes,41431,43,21,Urban,Developed,Moderate,Insured,Yes
+79,India,66,M,Localized,51,No,No,No,Overweight,High,High,Yes,No,No,Never,No,Chemotherapy,Yes,No,69571,23,8,Urban,Developed,Moderate,Insured,No
+80,France,88,F,Regional,39,Yes,No,Yes,Normal,Moderate,Low,No,No,Yes,Regular,No,Surgery,No,Yes,36173,13,6,Urban,Developing,Moderate,Insured,No
+81,Australia,34,M,Regional,12,Yes,No,No,Overweight,Low,Moderate,No,No,No,Irregular,No,Radiotherapy,Yes,No,109104,49,15,Rural,Developed,High,Uninsured,No
+82,UK,58,M,Localized,11,No,No,No,Overweight,Moderate,Low,No,No,No,Regular,Yes,Surgery,Yes,No,27536,56,24,Urban,Developed,High,Insured,No
+83,Italy,66,F,Localized,32,No,Yes,Yes,Normal,Moderate,Low,No,No,Yes,Irregular,No,Radiotherapy,Yes,No,78571,33,28,Urban,Developed,High,Uninsured,Yes
+84,USA,65,F,Regional,50,No,No,Yes,Overweight,Moderate,High,No,No,No,Regular,Yes,Chemotherapy,Yes,Yes,46586,44,25,Rural,Developed,Moderate,Insured,Yes
+85,UK,59,M,Regional,11,No,No,Yes,Overweight,High,Low,No,No,No,Irregular,Yes,Surgery,Yes,No,49118,15,17,Urban,Developed,High,Insured,No
+86,Japan,65,F,Localized,65,No,Yes,Yes,Overweight,High,Low,No,Yes,No,Irregular,Yes,Surgery,Yes,Yes,33866,11,19,Urban,Developing,High,Insured,Yes
+87,USA,43,F,Localized,43,Yes,No,No,Obese,Low,Low,No,No,No,Regular,Yes,Surgery,No,No,30560,40,16,Rural,Developed,Moderate,Insured,No
+88,China,51,M,Regional,62,No,No,No,Overweight,Low,Moderate,No,No,No,Irregular,No,Chemotherapy,No,Yes,55034,58,20,Urban,Developing,Moderate,Insured,Yes
+89,India,80,F,Localized,15,No,No,No,Overweight,High,High,No,No,No,Irregular,No,Radiotherapy,No,No,95860,25,21,Rural,Developing,Low,Uninsured,Yes
+90,Japan,75,M,Localized,76,Yes,Yes,Yes,Normal,High,Low,Yes,No,No,Irregular,Yes,Chemotherapy,Yes,No,44790,34,9,Urban,Developed,High,Insured,Yes
+91,South Korea,52,F,Localized,62,No,Yes,No,Overweight,Low,High,No,No,No,Irregular,No,Surgery,No,No,105359,40,17,Rural,Developed,High,Insured,Yes
+92,Japan,54,M,Metastatic,47,Yes,Yes,Yes,Normal,Moderate,Moderate,No,No,No,Regular,Yes,Surgery,No,No,57008,20,18,Urban,Developed,Moderate,Insured,Yes
+93,South Korea,72,F,Localized,25,No,Yes,No,Obese,Moderate,High,No,Yes,Yes,Regular,No,Chemotherapy,No,Yes,100346,53,22,Urban,Developing,Moderate,Insured,No
+94,New Zealand,68,F,Localized,65,Yes,No,No,Normal,Moderate,High,Yes,No,No,Irregular,Yes,Surgery,No,No,25036,50,15,Urban,Developed,Moderate,Insured,No
+95,Canada,65,F,Localized,65,Yes,Yes,No,Overweight,High,Moderate,No,No,Yes,Regular,No,Chemotherapy,Yes,No,34637,54,25,Rural,Developing,High,Uninsured,Yes
+96,Japan,66,F,Metastatic,76,No,Yes,Yes,Overweight,Moderate,Low,No,No,No,Irregular,No,Chemotherapy,Yes,No,56734,30,23,Rural,Developed,High,Insured,No
+97,Germany,63,M,Regional,22,No,Yes,Yes,Overweight,High,Moderate,Yes,No,No,Regular,Yes,Chemotherapy,No,Yes,76093,29,26,Urban,Developing,High,Insured,Yes
+98,USA,56,M,Localized,70,No,Yes,No,Overweight,Low,High,No,Yes,No,Never,Yes,Chemotherapy,No,No,109213,35,17,Rural,Developed,High,Uninsured,Yes
+99,USA,84,M,Metastatic,73,No,No,No,Overweight,Low,High,No,No,No,Regular,Yes,Chemotherapy,Yes,Yes,107083,40,10,Urban,Developed,High,Uninsured,No
+100,South Korea,77,M,Localized,9,No,Yes,No,Normal,Moderate,Low,No,No,No,Never,No,Radiotherapy,Yes,No,89305,23,12,Urban,Developing,Moderate,Insured,Yes
