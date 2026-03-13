@@ -8,3 +8,4 @@ By combining these approaches, the project aims to provide a comprehensive view 
 ## Datasets
 https://zenodo.org/records/1214456
 https://www.opendatabay.com/data/premium/ae2aba99-491d-45a1-a99e-7be14927f4af 
+https://www.kaggle.com/datasets/ankushpanday2/colorectal-cancer-global-dataset-and-predictions
