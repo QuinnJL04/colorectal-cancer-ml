@@ -1,1 +1,10 @@
-# colorectal-cancer-ml
+## Problem Statement
+This project investigates colon cancer prediction using three complementary machine learning approaches learned in the course. First, a convolutional neural network will be used to classify colorectal histopathology images as cancerous or non-cancerous. Second, a Bayesian regression model will be applied to evaluate the relationship between socioeconomic and environmental factors, such as income level, food access, and healthcare availability, and colorectal cancer incidence rates at the population level. Third, a time series model will be implemented to analyze and forecast trends in colorectal cancer incidence over time. By integrating image-based classification, probabilistic socioeconomic modeling, and temporal forecasting, the project aims to provide both individual-level diagnostic insight and broader public health risk analysis.
+
+## Proposed Project and Approaches
+This project integrates three complementary modeling approaches to examine colon cancer prediction from multiple perspectives. The CNN-based model addresses individual-level image classification, building on established research in medical computer vision. The Bayesian regression model provides a probabilistic framework for analyzing medical background disparities in cancer incidence, offering interpretable credible intervals for risk factors. The time series model contributes a forecasting dimension, allowing for analysis of incidence trends over time.
+By combining these approaches, the project aims to provide a comprehensive view of colon cancer prediction that integrates clinical imaging, socioeconomic risk factors, and temporal dynamics. This multi-method framework aligns with prior literature while extending it by connecting diagnostic modeling with broader population-level risk analysis.
+
+## Datasets
+https://zenodo.org/records/1214456
+https://www.opendatabay.com/data/premium/ae2aba99-491d-45a1-a99e-7be14927f4af 
