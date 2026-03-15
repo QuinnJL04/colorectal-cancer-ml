@@ -1,2 +1,0 @@
-# Automatic Repo Access Check Failed
-# Delete after confirmation of push access
