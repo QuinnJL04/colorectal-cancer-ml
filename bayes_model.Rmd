@@ -1,0 +1,89 @@
+---
+title: "bayes_model"
+output: pdf_document
+date: "2026-03-23"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+colorectal_data <- read.csv('Sample_Synthetic_Colorectal_Cancer_Global_Dataset.csv')
+head(colorectal_data)
+```
+
+```{r}
+subset_overall <-colorectal_data[, c(
+  "Tumor_Size_mm",
+  "Healthcare_Costs",
+  "Urban_or_Rural",
+  "Healthcare_Access",
+  "Economic_Classification"
+)]
+subset_overall$Urban_or_Rural <- as.numeric(factor(subset_overall$Urban_or_Rural))
+subset_overall$Healthcare_Access <- as.numeric(factor(subset_overall$Healthcare_Access))
+subset_overall$Economic_Classification <- as.numeric(factor(subset_overall$Economic_Classification))
+subset_overall$Tumor_Size_mm <- as.numeric(factor(subset_overall$Tumor_Size_mm))
+head(subset_b)
+head(subset_a)
+head(subset_overall)
+```
+
+```{r}
+# if we're trying to do b | a
+# keep only healthcare_costs,  urban or rural, healthcare_access, economic classification for a
+# keep only survival prediction for b
+# Calculate the covariance matrix
+cov_matrix <- cov(subset_overall)
+
+# Print the resulting matrix
+print(cov_matrix)
+```
+
+```{r}
+# p(5 years | healthcare costs , urban or rural, economic classification)
+Sigma_aa <- cov_matrix[1, 1]
+Sigma_ab <- matrix(cov_matrix[1, -1], nrow=1)
+Sigma_ba <- matrix(cov_matrix[-1, 1], nrow=4)
+Sigma_bb <- cov_matrix[-1, -1]
+
+Sigma_ba
+
+mu <- colMeans(subset_overall)
+mu_a <- mu[1]
+mu_b <- matrix(mu[-1], ncol = 1)
+```
+
+```{r}
+# in our case, we would be using a random row as y_b and guessing y_a based on it
+# for now, just use the first row, change this when actually using
+y_b <- matrix(as.numeric(subset_overall[1, -1]), ncol = 1)
+
+# Compute conditional mean and covariance for p(y1| y2 , y3, y4)
+Sigma_bb_inv <- solve(Sigma_bb)
+mu_agb <- (mu_a + Sigma_ab %*% Sigma_bb_inv %*% (y_b - mu_b))
+Sigma_agb <- (Sigma_aa - Sigma_ab %*% Sigma_bb_inv %*% t(Sigma_ab))
+
+print(mu_agb)
+print(Sigma_agb)
+
+# Actual tumor size
+tumor_size <- 45
+
+# Generate x1 values for plotting
+x_line <- seq(c(mu_agb - 3 * sqrt(Sigma_agb)),
+              c(mu_agb + 3 * sqrt(Sigma_agb)),
+              length.out = 100)
+
+# Compute probability density function
+p_agb <- dnorm(x_line, mean = mu_agb, sd = sqrt(Sigma_agb))
+
+# Plot the estimated tumor size distribution
+ggplot() +
+  geom_line(aes(x = x_line, y = p_agb), color = "blue") +
+  geom_vline(aes(xintercept = tumor_size), color = "red", linetype = "dashed") +
+  geom_vline(aes(xintercept = mu_agb), color = "green", linetype = "dotted") +
+  labs(x = "Health", y = "Probability Density",
+       title = "Estimated Tumor Size Distribution")
+```
