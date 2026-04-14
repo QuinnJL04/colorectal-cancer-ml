@@ -15,6 +15,7 @@ head(colorectal_data)
 
 ```{r}
 subset_overall <-colorectal_data[, c(
+  
   "Tumor_Size_mm",
   "Healthcare_Costs",
   "Urban_or_Rural",
@@ -47,8 +48,6 @@ Sigma_aa <- cov_matrix[1, 1]
 Sigma_ab <- matrix(cov_matrix[1, -1], nrow=1)
 Sigma_ba <- matrix(cov_matrix[-1, 1], nrow=4)
 Sigma_bb <- cov_matrix[-1, -1]
-
-Sigma_ba
 
 mu <- colMeans(subset_overall)
 mu_a <- mu[1]
@@ -86,4 +85,123 @@ ggplot() +
   geom_vline(aes(xintercept = mu_agb), color = "green", linetype = "dotted") +
   labs(x = "Health", y = "Probability Density",
        title = "Estimated Tumor Size Distribution")
+```
+
+```{r}
+# Determine turmor size based on patient data
+subset_overall <-colorectal_data[, c(
+  "Healthcare_Costs",
+  "Economic_Classification",
+  "Healthcare_Access",
+  "Insurance_Status"
+)]
+
+library(MCMCpack)
+library(mvnfast)
+y <- subset_overall$Healthcare_Costs
+
+X <- model.matrix(Healthcare_Costs ~ factor(Economic_Classification) +
+                                      factor(Healthcare_Access) +
+                                      factor(Insurance_Status),
+                  data = subset_overall)
+p <- ncol(X)
+prior_w <- matrix(0, nrow = p, ncol = 1)
+prior_Sigma <- diag(p) * 1e6
+y <- as.matrix(y)
+X <- as.matrix(X)
+n <- length(y)
+library(MCMCpack)
+# Keep same situation, same priors for w
+prior_w
+prior_Sigma
+# Now need priors for sigma_y
+prior_alpha <- 3
+prior_beta <- var(y) * (prior_alpha - 1)
+# will need the sample size
+n <- length(y)
+
+# Set up markov chain matrices
+no_samples <- 1000
+gibbs_samples_w <- matrix(0, nrow = no_samples, ncol = p)
+gibbs_samples_sigmay <- matrix(0, nrow = no_samples, ncol = 1)
+
+#initialize
+ols_fit <- lm(Healthcare_Costs ~ factor(Economic_Classification) +
+                                   factor(Healthcare_Access) +
+                                   factor(Insurance_Status),
+              data = subset_overall)
+w_tilde <- matrix(coef(ols_fit), ncol = 1)
+sigma2_tilde <- summary(ols_fit)$sigma^2
+
+# run the sampler
+for(i in 1:no_samples){
+  # conditional posterior parameters for w
+  V = solve((1/sigma2_tilde)*t(X)%*%X + solve(prior_Sigma))
+
+  M = V%*%((1/sigma2_tilde)*t(X)%*%y + solve(prior_Sigma)%*%prior_w)
+  # sample weights
+  w_tilde <- t(rmvn(1, M, V)) # rmvn gives w^T
+  
+  # conditional posterior parameters for sigma2
+  A = (2*prior_alpha + n)/2
+  B = (2*prior_beta + t(y - X%*%w_tilde)%*%(y - X%*%w_tilde))/2
+  # sample sigma2
+  sigma2_tilde <- max(rinvgamma(1, A, B), 1e-6)
+  
+  # store them
+  gibbs_samples_w[i,] <- w_tilde
+  gibbs_samples_sigmay[i,] <- sigma2_tilde
+}
+
+# check convergence and mixing of weights
+head(gibbs_samples_w)
+plot(gibbs_samples_w[,2], type = "l") # change the index to examine the 7 weights
+acf(gibbs_samples_w[,2]) # change the index to examine the 7 weights
+
+# check convergence and mixing of variance term
+head(gibbs_samples_sigmay)
+plot(gibbs_samples_sigmay, type = "l")
+acf(gibbs_samples_sigmay)
+
+# converged quickly, very good mixing. Not even going to bother with burn-in or thinning
+# though, you may need to in practice
+
+# visualize posteriors?
+hist(gibbs_samples_sigmay, main = "Posterior of Variance of Health Care Costs")
+for (j in 1:p) {
+  hist(gibbs_samples_w[,j], main = paste("Posterior of weight", j))
+}
+
+# Generating predictive distribution for Bulbasaur
+pred <- numeric(nrow(gibbs_samples_w))
+for(i in 1:nrow(gibbs_samples_w)){
+  pred[i] <- rnorm(1, mean = t(gibbs_samples_w[i,]) %*% X[1,], sd = sqrt(gibbs_samples_sigmay[i]))
+}
+hist(pred, main = "Posterior Predictive Distribution")
+mean(pred)
+y[1]
+sd(y)        # what is the raw standard deviation of Healthcare_Costs?
+range(y)     # what is the range?
+mean(y)
+
+
+var_pred <- apply(pred_all, 2, var)
+var_resid <- apply(pred_all - as.vector(y), 1, var)
+
+# double check dimensions
+cat("pred_all dimensions:", dim(pred_all), "\n")
+cat("length of y:", length(y), "\n")
+
+bayes_r2 <- var_pred / (var_pred + var_resid)
+cat("R2 mean:", mean(bayes_r2), "\n")
+cat("R2 median:", median(bayes_r2), "\n")
+hist(bayes_r2, main = "Posterior of Bayesian R2")
+
+
+
+cat("y mean:", mean(y), "\n")          # should be ~66,000
+cat("y range:", range(y), "\n")        # should be 25,033 to 119,469
+cat("X dimensions:", dim(X), "\n")     # should be 100 x p
+cat("p:", p, "\n")
+cat("prior_beta:", prior_beta, "\n")
 ```
