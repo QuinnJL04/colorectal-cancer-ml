@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-colorectal_data <- read.csv('Sample_Synthetic_Colorectal_Cancer_Global_Dataset.csv')
+colorectal_data <- read.csv('colorectal_cancer_dataset.csv')
 head(colorectal_data)
 ```
 
@@ -111,9 +111,7 @@ y <- as.matrix(y)
 X <- as.matrix(X)
 n <- length(y)
 library(MCMCpack)
-# Keep same situation, same priors for w
-prior_w
-prior_Sigma
+
 # Now need priors for sigma_y
 prior_alpha <- 3
 prior_beta <- var(y) * (prior_alpha - 1)
@@ -154,12 +152,10 @@ for(i in 1:no_samples){
 }
 
 # check convergence and mixing of weights
-head(gibbs_samples_w)
 plot(gibbs_samples_w[,2], type = "l") # change the index to examine the 7 weights
 acf(gibbs_samples_w[,2]) # change the index to examine the 7 weights
 
 # check convergence and mixing of variance term
-head(gibbs_samples_sigmay)
 plot(gibbs_samples_sigmay, type = "l")
 acf(gibbs_samples_sigmay)
 
@@ -172,30 +168,12 @@ for (j in 1:p) {
   hist(gibbs_samples_w[,j], main = paste("Posterior of weight", j))
 }
 
-# Generating predictive distribution for Bulbasaur
+# Generating predictive distribution for Healthcare
 pred <- numeric(nrow(gibbs_samples_w))
 for(i in 1:nrow(gibbs_samples_w)){
   pred[i] <- rnorm(1, mean = t(gibbs_samples_w[i,]) %*% X[1,], sd = sqrt(gibbs_samples_sigmay[i]))
 }
 hist(pred, main = "Posterior Predictive Distribution")
-mean(pred)
-y[1]
-sd(y)        # what is the raw standard deviation of Healthcare_Costs?
-range(y)     # what is the range?
-mean(y)
-
-
-var_pred <- apply(pred_all, 2, var)
-var_resid <- apply(pred_all - as.vector(y), 1, var)
-
-# double check dimensions
-cat("pred_all dimensions:", dim(pred_all), "\n")
-cat("length of y:", length(y), "\n")
-
-bayes_r2 <- var_pred / (var_pred + var_resid)
-cat("R2 mean:", mean(bayes_r2), "\n")
-cat("R2 median:", median(bayes_r2), "\n")
-hist(bayes_r2, main = "Posterior of Bayesian R2")
 
 
 
