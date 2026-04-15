@@ -13,79 +13,7 @@ colorectal_data <- read.csv('colorectal_cancer_dataset.csv')
 head(colorectal_data)
 ```
 
-```{r}
-subset_overall <-colorectal_data[, c(
-  
-  "Tumor_Size_mm",
-  "Healthcare_Costs",
-  "Urban_or_Rural",
-  "Healthcare_Access",
-  "Economic_Classification"
-)]
-subset_overall$Urban_or_Rural <- as.numeric(factor(subset_overall$Urban_or_Rural))
-subset_overall$Healthcare_Access <- as.numeric(factor(subset_overall$Healthcare_Access))
-subset_overall$Economic_Classification <- as.numeric(factor(subset_overall$Economic_Classification))
-subset_overall$Tumor_Size_mm <- as.numeric(factor(subset_overall$Tumor_Size_mm))
-head(subset_b)
-head(subset_a)
-head(subset_overall)
-```
 
-```{r}
-# if we're trying to do b | a
-# keep only healthcare_costs,  urban or rural, healthcare_access, economic classification for a
-# keep only survival prediction for b
-# Calculate the covariance matrix
-cov_matrix <- cov(subset_overall)
-
-# Print the resulting matrix
-print(cov_matrix)
-```
-
-```{r}
-# p(5 years | healthcare costs , urban or rural, economic classification)
-Sigma_aa <- cov_matrix[1, 1]
-Sigma_ab <- matrix(cov_matrix[1, -1], nrow=1)
-Sigma_ba <- matrix(cov_matrix[-1, 1], nrow=4)
-Sigma_bb <- cov_matrix[-1, -1]
-
-mu <- colMeans(subset_overall)
-mu_a <- mu[1]
-mu_b <- matrix(mu[-1], ncol = 1)
-```
-
-```{r}
-# in our case, we would be using a random row as y_b and guessing y_a based on it
-# for now, just use the first row, change this when actually using
-y_b <- matrix(as.numeric(subset_overall[1, -1]), ncol = 1)
-
-# Compute conditional mean and covariance for p(y1| y2 , y3, y4)
-Sigma_bb_inv <- solve(Sigma_bb)
-mu_agb <- (mu_a + Sigma_ab %*% Sigma_bb_inv %*% (y_b - mu_b))
-Sigma_agb <- (Sigma_aa - Sigma_ab %*% Sigma_bb_inv %*% t(Sigma_ab))
-
-print(mu_agb)
-print(Sigma_agb)
-
-# Actual tumor size
-tumor_size <- 45
-
-# Generate x1 values for plotting
-x_line <- seq(c(mu_agb - 3 * sqrt(Sigma_agb)),
-              c(mu_agb + 3 * sqrt(Sigma_agb)),
-              length.out = 100)
-
-# Compute probability density function
-p_agb <- dnorm(x_line, mean = mu_agb, sd = sqrt(Sigma_agb))
-
-# Plot the estimated tumor size distribution
-ggplot() +
-  geom_line(aes(x = x_line, y = p_agb), color = "blue") +
-  geom_vline(aes(xintercept = tumor_size), color = "red", linetype = "dashed") +
-  geom_vline(aes(xintercept = mu_agb), color = "green", linetype = "dotted") +
-  labs(x = "Health", y = "Probability Density",
-       title = "Estimated Tumor Size Distribution")
-```
 
 ```{r}
 # Determine turmor size based on patient data
@@ -178,8 +106,29 @@ hist(pred, main = "Posterior Predictive Distribution")
 
 
 cat("y mean:", mean(y), "\n")          # should be ~66,000
+cat("pred mean:", mean(pred), "\n")
 cat("y range:", range(y), "\n")        # should be 25,033 to 119,469
 cat("X dimensions:", dim(X), "\n")     # should be 100 x p
 cat("p:", p, "\n")
 cat("prior_beta:", prior_beta, "\n")
+
+cat("95% Credible Intervals for each weight:\n")
+cat(sprintf("%-15s %-15s %-15s\n", "Weight", "Lower (2.5%)", "Upper (97.5%)"))
+cat(rep("-", 45), "\n")
+
+for (j in 1:p) {
+  lower <- quantile(gibbs_samples_w[, j], 0.025)
+  upper <- quantile(gibbs_samples_w[, j], 0.975)
+  cat(sprintf("%-15s %-15.4f %-15.4f\n", 
+              colnames(X)[j], lower, upper))
+}
+
+# Generating predictive distribution for Bulbasaur
+bulb_hat <- c()
+for(i in 1:nrow(gibbs_samples_w)){
+  bulb_hat <- c(bulb_hat, rnorm(n = 1, mean = t(gibbs_samples_w[i,])%*%X[1,], sd = sqrt(gibbs_samples_sigmay[i,])))
+}
+hist(bulb_hat, main = "Post Pred Dist of the first row")
+mean(bulb_hat)
+y[1]
 ```
